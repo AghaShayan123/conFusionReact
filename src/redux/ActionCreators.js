@@ -52,11 +52,13 @@ export const fetchDishes = () => (dispatch) => {
     return fetch(baseUrl + 'dishes')
         .then(response => {
             if (response.ok) {
+                console.log('dishes response: '+response)
                 return response;
             }
             else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText);
                 error.response = response;
+                console.log('dishes error response: '+response)
                 throw error;
             }
         },
